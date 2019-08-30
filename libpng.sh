@@ -1,7 +1,8 @@
 #!/bin/bash
+source dirs.sh
 
-pushd $PWD/libpng-1.6.37
-    ./configure --prefix=$PWD/install --enable-shared=no --with-sysroot=$PWD/../zlib-1.2.11/install --host=arm-linux-gnueabihf CPPFLAGS="-I$PWD/../zlib-1.2.11/install/include" LDFLAGS="-L$PWD/../zlib-1.2.11/install/lib"
+pushd $PNG_DIR
+    ./configure --prefix=$PWD/install --enable-shared=no --with-sysroot=$ZLIB_DIR/install --host=arm-linux-gnueabihf CPPFLAGS="-I$ZLIB_DIR/install/include" LDFLAGS="-L$ZLIB_DIR/install/lib"
     make
     make install
 popd

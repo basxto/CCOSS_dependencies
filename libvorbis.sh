@@ -1,8 +1,9 @@
 #!/bin/bash
+source dirs.sh
 
-pushd $PWD/libvorbis-1.3.6
+pushd $VORBIS_DIR
     export CFLAGS="-g"
-    ./configure --prefix=$PWD/install --enable-shared=no --with-ogg=$PWD/../libogg-1.3.3/install --with-ogg-includes=$PWD/../libogg-1.3.3/include --host=arm-linux-gnueabihf
+    ./configure --prefix=$PWD/install --enable-shared=no --with-ogg=$OGG_DIR/install --with-ogg-includes=$OGG_DIR/include --host=arm-linux-gnueabihf
     make
     make install
 popd
