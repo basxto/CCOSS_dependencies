@@ -2,9 +2,9 @@
 source dirs.sh
 
 pushd $SNDIO_DIR
-    ./configure --prefix=$PWD/install
+    ./configure --prefix=$PWD/install --disable-alsa CC=arm-linux-gnueabihf-gcc
     make
     make install
     cd $PWD/libsndio
-    ar rcs libsndio.a *.o
+    arm-linux-gnueabihf-ar rcs libsndio.a *.o
 popd
